@@ -1,0 +1,296 @@
+<!-- Encabezado de la página -->
+<header>
+  <!--Logo de la página-->
+  <img src="Delicato_Logo.png" alt="Delicato Logo">
+  <!-- Barra de navegación -->
+  <nav>
+    <ul>
+      <li><a href="#Inicio">Inicio</a></li>
+      <li><a href="#Nosotros">Nosotros</a></li>
+      <li><a href="#Menu">Menú</a></li>
+      <li><a href="#Reserva">Reserva</a></li>
+      <li>
+        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasContacto"
+          aria-controls="offcanvasContacto">Contacto</a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+<!-- Imagen de inicio principal -->
+<div id="Inicio" class="Inicio">
+  <!-- Div para centrar el texto -->
+  <div class="InicioTexto">
+    <h1>DELICATO</h1>
+    <h2>Restaurante</h2>
+  </div>
+</div>
+
+<!-- Sección de Nosotros -->
+<div id="Nosotros">
+  <!-- Divisor de MICHELIN -->
+  <div class="AtmosferaDivider">
+    <div class="AtmosferaTexto">
+      <h2>Atmósfera Fascinante</h2>
+      <p>El Restaurante Delicato es ideal para sus momentos más importantes, para una cena romántica o para un
+        almuerzo familiar.</p>
+    </div>
+    <a href="https://guide.michelin.com/it/it/lazio/contigliano_1843189/ristorante/delicato" target="_blank"><img
+        src="MICHELIN-2025_Selected_E-label_Logo.png" alt="Estrella MICHELIN"></a>
+  </div>
+
+  <!-- Sección de gastronomía autentica -->
+  <div class="GastronomiaAutentica">
+    <div class="GastronomiaAutenticaTitleContainer">
+      <div class="GastronomiaAutenticaTitulo">
+        <h2>Gastronomía autentica</h2>
+      </div>
+    </div>
+    <div class="GastronomiaAutenticaDescripcionContainer">
+      <div class="GastronomiaAutenticaDescripcion">
+        <p>Un auténtico proyecto gastronómico, una cocina básica sostenible que nace del amor por nuestro
+          territorio, ingredientes tradicionales procesados con maestría a través de técnicas de cocina
+          contemporáneas.
+          Cocina de proximidad y memoria gastronómica, sin excesos estilísticos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sección de Carrusel-->
+<div class="Menu" id="Menu">
+
+  <h1 class="Menu-titulo">Nuestros Platos</h1>
+  <div class="linea"></div>
+
+
+
+  <!-- Contenedor del Carrusel -->
+  <div class="contenedor-carrusel">
+    <button id="prevBtn">❮</button>
+    <div id="carrusel" class="carrusel">
+      <div class="item"><img src="menu-carrusel1.jpg" alt="Plato 1"></div>
+      <div class="item"><img src="menu-carrusel2.jpg" alt="Plato 2"></div>
+      <div class="item"><img src="menu-carrusel3.jpg" alt="Plato 3"></div>
+      <div class="item"><img src="menu-carrusel4.jpg" alt="Plato 4"></div>
+      <div class="item"><img src="menu-carrusel5.jpg" alt="Plato 5"></div>
+      <div class="item"><img src="menu-carrusel6.jpg" alt="Plato 6"></div>
+    </div>
+    <button id="nextBtn">❯</button>
+  </div>
+  <div id="dots" class="dots-container"></div>
+
+  <!-- Indicadores (dots) -->
+  <div class="dots" id="dots"></div>
+</div>
+
+
+<div class="platillo">
+  <div class="marmol">
+    <div class="food-item"><img src="Carbonara.jpg" alt="Pasta carboanra">
+      <h1>Spaghetti alla Carbonara</h1>
+    </div>
+    <div class="food-item"><img src="Ossobuco.jpg" alt="Ossobuco">
+      <h2>Ossobuco alla Milanese</h2>
+    </div>
+    <div class="food-item"><img src="Fettuccine.jpg" alt="Fettuccine">
+      <h1>Fettuccine Alfredo</h1>
+    </div>
+    <div class="food-item"><img src="Pollo al Marsala.jpg" alt="Pollo">
+      <h4>Pollo al Marsala</h4>
+    </div>
+  </div>
+</div>
+
+<!-- Sección de reserva -->
+<div id="Reserva" class="Reserva">
+  <div class="ReservaCardContainer">
+    <div class="ReservaCardContentContainer">
+      <!-- Inicio de la reserva -->
+      <h1>DELICATO</h1>
+      <h3>Reserva con Nosotros</h3>
+
+      <!-- Formulario para la reserva -->
+      <form>
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control form-control-sm" id="nombre">
+
+        <label for="email">Correo</label>
+        <input type="email" class="form-control form-control-sm" id="email">
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" class="form-control form-control-sm" id="telefono">
+
+        <div class="GrupoBotonesTipoCena">
+          <div class="slider slider-oscuro left"></div>
+          <button id="btn-almuerzo" class="active">Almuerzo</button>
+          <button id="btn-cena">Cena</button>
+        </div>
+
+        <!-- Div para acomodar la reserva de la fecha -->
+        <div class="calendarioDropdown">
+          <div class="dropdownContainer">
+            <!-- Dropdown de Personas -->
+            <div class="personas-dropdown">
+              <div class="personas-dropdown-container">
+                <button class="personas-dropdown-button">
+                  <i class="fas fa-users"></i>
+                  <span class="arrow">&#9660;</span>
+                </button>
+                <input type="text" class="personas-dropdown-input" placeholder="Personas">
+              </div>
+              <div class="personas-dropdown-content">
+                <ul class="personas-dropdown-menu">
+                  <li data-value="1">1</li>
+                  <li data-value="2">2</li>
+                  <li data-value="3">3</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Dropdown de Horas -->
+            <div class="hora-dropdown">
+              <div class="hora-dropdown-container">
+                <button class="hora-dropdown-button">
+                  <i class="fa-regular fa-clock"></i>
+                  <span class="arrow">&#9660;</span>
+                </button>
+                <input type="text" class="hora-dropdown-input" placeholder="Hora">
+              </div>
+              <div class="hora-dropdown-content">
+                <ul class="hora-dropdown-menu">
+                  <li>16:00</li>
+                  <li>17:00</li>
+                  <li>18:00</li>
+                  <li>19:00</li>
+                  <li>20:00</li>
+                  <li>21:00</li>
+                  <li>22:00</li>
+                  <li>23:00</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Calendario Date Picker -->
+          <div class="calendar-container">
+            <div class="calendar" id="calendar"></div>
+          </div>
+        </div>
+
+        <button class="reserva-btn">Reserva</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="SeccionMesaContainer">
+    <div class="LinternaContenedor" id="lampara-container">
+      <div class="cuerda"></div>
+      <div class="cono"></div>
+      <div class="lampara"></div>
+    </div>
+
+    <div class="SeccionMesa">
+      <div class="Mesa"><img src="Mesa.png" alt="Imagen_Mesa"></div>
+      <div class="SillaContainer Sillas-0" id="silla-container">
+        <div class="Silla SillaLeft" id="Left_Seat"><img src="Silla_Lado.png" alt="Left_Seat"></div>
+        <div class="Silla SillaBack" id="Back_Seat"><img src="Silla.png" alt="Back_Seat"></div>
+        <div class="Silla SillaRight" id="Right_Seat"><img src="Silla_Lado.png" alt="Right_Seat"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sección del footer-->
+<footer>
+  <div class="footer-container">
+    <!-- Logo izquierda -->
+    <div class="logo">
+      <h2>DELICATO <img src="Bandera italia.png" alt="Bandera de italia"></h2>
+      <h3>RESTAURANTE</h3>
+    </div>
+
+    <!-- Informacion de contacto -->
+    <div class="info-container">
+      <div class="contact-info">
+        <h4>Dirección</h4>
+        <p>Via Umberto I, 2 02043 – Contigliano (Rieti)</p>
+      </div>
+      <div class="contact-info">
+        <h4>EMAIL</h4>
+        <p>restaurant&#64;miramar-cambrils.com</p>
+        <h4>TELÉFONO</h4>
+        <p>+34 977 36 00 63</p>
+      </div>
+    </div>
+
+    <!-- Redes sociales -->
+    <div class="social-container">
+      <a href="https://www.instagram.com/ristorantedelicato/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/ristorantedelicato" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-text"><em>Rispetto per il territorio</em></p>
+    <p class="rights">Todos los derechos reservados | Delicato&#64;</p>
+  </div>
+</footer>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasContacto" aria-labelledby="offcanvasContactoLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <h1>Horarios</h1>
+
+    <div class="horarios">
+      <h4>Miercoles-Viernes</h4>
+      <p>3 p.m. - 12 a.m</p>
+
+      <h4>Sabado</h4>
+      <p>10:30 a.m - 12 a.m.</p>
+
+      <h4>Domingo</h4>
+      <p>10:30 a.m - 3 p.m.</p>
+    </div>
+
+    <div class="contact-container">
+      <h2>Contacto</h2>
+      <div class="Telefono">
+        <h4>Teléfono</h4>
+        <p>+39 0746249202</p>
+        <a href="tel:+390746249202" class="call-button" title="Llamar">
+          <div class="icon-container">📞 Llamar</div>
+        </a>
+      </div>
+
+      <div class="correo">
+        <h4>Correo</h4>
+        <p>info&#64;ristorantedelicato.it</p>
+        <a href="mailto:info&#64;ristorantedelicato.it?subject=Consulta&body=Hola, me gustaría más información."
+          class="email-button" title="Enviar correo">
+          <div class="icon-container">📧 Enviar</div>
+        </a>
+      </div>
+
+    </div>
+
+    <div>
+      <h4>Dirección</h4>
+      <p>Via Umberto I, 2, 02043 Contigliano RI</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1900.6259912746705!2d12.76524883049025!3d42.40911966870392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f0169f47aa0e5%3A0x8d39707f4b52b82c!2sDELICATO%20%7C%20Ristorante!5e1!3m2!1sit!2sit!4v1742417629730!5m2!1sit!2sit"
+        width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+    </div>
+  </div>
+</div>
+<script src="js/imagenExpandida.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
