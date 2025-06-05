@@ -1,0 +1,1349 @@
+/* Estilos generales */
+body {
+  font-family: "Quattrocento", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  overflow-x: hidden;
+}
+
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  transition: height 0.3s ease-in-out;
+  /* Transición para el tamaño del header*/
+}
+
+header .black {
+  background-color: rgb(0, 0, 0);
+}
+
+/* Imágenes de encabezado*/
+header img {
+  height: auto;
+  width: 12%;
+  margin-left: 5%;
+
+  transition: all 0.3s ease-in-out;
+  /* Transición para el tamaño del header*/
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: center;
+  list-style: none;
+  gap: 3em;
+  margin: 0;
+  margin-right: 100px;
+  padding: 0;
+}
+
+nav ul li a {
+  display: flex;
+  align-items: center;
+
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 1.2vw;
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #93b786;
+}
+
+.Inicio {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5) 68%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(../../public/Main_Image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.InicioTexto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.InicioTexto h1 {
+  color: white;
+  font-family: "Quattrocento", serif;
+  font-size: 5vw;
+  letter-spacing: 6px;
+  border-bottom: 1px solid white;
+  padding: 0 3em;
+}
+
+.InicioTexto h2 {
+  color: white;
+  font-family: "Quattrocento", serif;
+  margin-top: 32px;
+  font-size: 2vw;
+  letter-spacing: 3px;
+  padding: 0 3em;
+}
+
+.AtmosferaDivider {
+  background-image: linear-gradient(
+      180deg,
+      rgb(221, 221, 221, 0.5) 68%,
+      rgb(221, 221, 221, 0.5) 100%
+    ),
+    url(../../public/Fondo_Marmol.png);
+  height: 40vh;
+  padding: 5vw;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  box-shadow: inset 0px 16px 18px 0px rgba(63, 63, 31, 0.3);
+  /*  Sombra Interior del contenedor */
+  font-family: "Quattrocento";
+}
+
+.AtmosferaDivider a {
+  max-width: 12%;
+  height: auto;
+  display: block;
+}
+
+.AtmosferaDivider h2 {
+  font-size: 3vw;
+}
+
+.AtmosferaDivider p {
+  font-size: 1.1vw;
+  color: #707070;
+  margin-right: 60%;
+}
+
+.GastronomiaAutentica {
+  background-image: url(../../public/Fondo_Gastronomia_Autentica.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  box-shadow: 0px 0px 18px 16px rgba(63, 63, 31, 0.3);
+  /* Sombra exterior del contenedor*/
+}
+
+/* Contenedor para distribuir espacio */
+.GastronomiaAutenticaTitleContainer {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+/* Contenedor para colocar fondo en oscuro y acomodar texto */
+.GastronomiaAutenticaTitulo {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 50%;
+  width: 35%;
+  text-align: start;
+  display: flex;
+  align-items: center;
+}
+
+/* Cambios de la fuente */
+.GastronomiaAutenticaTitulo h2 {
+  font-family: "Quattrocento", serif;
+  font-weight: bold;
+  font-size: 3vw;
+  max-width: 100%;
+  padding: 5%;
+}
+
+/* Contenedor para distribuir espacio */
+.GastronomiaAutenticaDescripcionContainer {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+/* Contenedor para distribuir espacio */
+.GastronomiaAutenticaDescripcion {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 55%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+/* Cambios de la fuente */
+.GastronomiaAutenticaDescripcion p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5vw;
+  padding: 5%;
+  margin-left: 5%;
+  text-align: end;
+}
+
+/* Contenedor principal */
+.Menu {
+  text-align: center;
+  margin-top: 150px;
+  height: 100vh;
+  position: relative;
+}
+
+.Menu-titulo {
+  font-family: "Quattrocento", serif;
+  font-size: 5vw;
+}
+
+.linea {
+  width: 95%;
+  /* Ajusta el largo de la línea */
+  height: 3px;
+  /* Grosor de la línea */
+  margin: 0 auto;
+  /* Centrar la línea */
+  margin-top: 40px;
+  margin-bottom: 200px;
+
+  /* Gradiente para efecto de desvanecido */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    black 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Botones de navegación */
+.btn-carrousel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  font-size: 24px;
+}
+
+.prev {
+  left: 5%;
+}
+
+.next {
+  right: 5%;
+}
+
+/* Estilos básicos del carrusel */
+.contenedor-carrusel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carrusel {
+  display: flex;
+  transition: transform 0.8s ease;
+  gap: 50px;
+  transform: translate(0, -10%);
+}
+
+.item {
+  min-width: 300px;
+  box-sizing: border-box;
+  transition: transform 0.8s ease;
+}
+
+img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Botones de navegación */
+#prevBtn,
+#nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+/* Dots de navegación */
+.dots-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #4caf50;
+}
+
+.platillo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Alinea los elementos a la derecha */
+  justify-content: center;
+  color: black;
+  gap: 20px;
+}
+
+/* Sección de platos fuertes*/
+.platillo div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  /* Espacio entre la imagen y el texto */
+  width: 42%;
+  /* Define un ancho para la sección de cada platillo */
+}
+
+.marmol {
+  width: 40%;
+  /* Ajusta el ancho de la sección de mármol */
+  height: 100%;
+  /* Permite que la altura se adapte al contenido */
+  background: url("../../public/Fondo_Marmol.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  /* Alinea los elementos en columna */
+  align-items: center;
+  /* Centra los elementos horizontalmente */
+  gap: 15px;
+  /* Espaciado entre los elementos */
+}
+
+.food-item h4 {
+  font-size: 350%;
+}
+
+.food-item h2 {
+  font-size: 260%;
+}
+
+.food-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Espacio entre la imagen y el nombre */
+}
+
+.food-item img {
+  width: 90%;
+  /* Ajusta el tamaño de la imagen */
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.food-item img:hover {
+  transform: translateY(-5px);
+}
+
+/* Fondo difuminado */
+.platillo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../public/Buffet_Italiano.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+/* Estilos para la imagen en pantalla completa */
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  /* Fondo oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fullscreen-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fullscreen-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Cursor para cerrar */
+.fullscreen-overlay::after {
+  content: "✖";
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Sección para la reserva */
+.Reserva {
+  background-image: radial-gradient(farthest-corner at 90% 10%, #694427, black);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+/* Sección exterior de la carta de reserva */
+.ReservaCardContainer {
+  position: relative;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.7) 100%
+    ),
+    url(../../public/Fondo_Marmol.png);
+  padding: 1.5em;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  height: 85%;
+  width: 30%;
+  margin-left: 5%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Sección interior de la carta de reserva */
+.ReservaCardContentContainer {
+  background: transparent;
+  padding: 2em;
+  height: 97%;
+  width: 100%;
+  text-align: left;
+  color: black;
+  border: 4px dotted black;
+  font-family: "Quattrocento", serif;
+}
+
+.ReservaCardContainer h1 {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.7) 100%
+    ),
+    url(../../public/Fondo_Marmol.png);
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  font-family: "Quattrocento", serif;
+  font-size: 2.5vw;
+  text-align: center;
+  padding: 0 1em;
+}
+
+.ReservaCardContainer h3 {
+  font-family: "Birthstone", cursive;
+  font-size: 4vw;
+}
+
+/* Cambio de input para la caja */
+
+.form-control {
+  font-family: "Quattrocento", serif;
+  color: #707070;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid !important;
+}
+
+/* Sección de los botones de la cena*/
+.GrupoBotonesTipoCena {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+/* Estilo de los botones */
+.GrupoBotonesTipoCena button {
+  flex: 1;
+  /* Hace que los botones ocupen el mismo espacio */
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  background: none;
+  position: relative;
+  z-index: 1;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+/* Estilo del botón activo */
+.GrupoBotonesTipoCena button.active {
+  color: white;
+}
+
+/* Barra deslizante */
+.slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #8bc34a;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Posición inicial */
+.left {
+  transform: translateX(0%);
+}
+
+.right {
+  transform: translateX(100%);
+}
+
+/* CSS que acomoda la sección especial de la reserva */
+.calendarioDropdown {
+  display: flex;
+}
+
+.dropdownContainer {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+}
+
+/* Contenedor principal para ambos dropdowns */
+.dropdownContainer {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+}
+
+/* ======== Dropdown de Personas ======== */
+.personas-dropdown {
+  position: relative;
+  width: 90%;
+}
+
+.personas-dropdown-container {
+  display: flex;
+  margin-bottom: 5%;
+  align-items: center;
+  border: 1px solid gray;
+  overflow: hidden;
+  background-color: white;
+}
+
+.personas-dropdown-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 50px;
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.personas-dropdown-button i {
+  font-size: 18px;
+  color: #707070;
+}
+
+.personas-dropdown-button .arrow {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #707070;
+}
+
+.personas-dropdown-input {
+  border: none;
+  padding: 10px;
+  width: 100%;
+  flex: 1;
+  outline: none;
+  text-align: center;
+}
+
+.personas-dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid gray;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: none;
+}
+
+.personas-dropdown-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.personas-dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.personas-dropdown-menu li:hover {
+  background: lightgray;
+}
+
+/* Mostrar el menú desplegable */
+.personas-show-menu {
+  display: block !important;
+}
+
+/* ======== Dropdown de Horas ======== */
+.hora-dropdown {
+  position: relative;
+  width: 90%;
+}
+
+.hora-dropdown-container {
+  display: flex;
+  margin-bottom: 5%;
+  align-items: center;
+  border: 1px solid gray;
+  overflow: hidden;
+  background-color: white;
+}
+
+.hora-dropdown-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 50px;
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.hora-dropdown-button i {
+  font-size: 18px;
+  color: #707070;
+}
+
+.hora-dropdown-button .arrow {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #707070;
+}
+
+.hora-dropdown-input {
+  border: none;
+  padding: 10px;
+  width: 100%;
+  flex: 1;
+  outline: none;
+  text-align: center;
+}
+
+.hora-dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid gray;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: none;
+}
+
+.hora-dropdown-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hora-dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.hora-dropdown-menu li:hover {
+  background: lightgray;
+}
+
+/* Mostrar el menú desplegable */
+.hora-show-menu {
+  display: block !important;
+}
+
+/* Mostrar cualquier dropdown al hacer clic */
+.show-menu {
+  display: block !important;
+}
+
+/* Responsividad */
+@media (max-width: 576px) {
+  .w-340px {
+    width: 100%;
+  }
+
+  .cal-btn {
+    padding: 0.5rem;
+  }
+}
+
+.LinternaContenedor {
+  position: relative;
+  top: -100%;
+  left: 30%;
+}
+
+/* Cuerda de la lámpara */
+.cuerda {
+  width: 2px;
+  background: #555;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: estirar 0.8s cubic-bezier(0.7, 0, 1, 1) forwards,
+    retraer 0.6s cubic-bezier(0.25, 1.2, 0.5, 1) 0.8s forwards;
+}
+
+/* Cono de la lámpara (doble de tamaño y negro) */
+.cono {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 0;
+  height: 0;
+  border-left: 90px solid transparent;
+  /* Lados del cono (duplicado) */
+  border-right: 90px solid transparent;
+  /* Lados del cono (duplicado) */
+  border-bottom: 140px solid #000;
+  /* Cono negro (duplicado) */
+  z-index: 2;
+  /* Encima de la esfera */
+  margin-top: 40px;
+  /* Ajustado para que quede a la mitad */
+  animation: caer 0.8s cubic-bezier(0.7, 0, 1, 1) forwards,
+    rebote 0.6s cubic-bezier(0.25, 1.2, 0.5, 1) 0.8s forwards;
+}
+
+/* Esfera (luz) de la lámpara */
+.lampara {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #fff7b3 20%, #8bc34a 80%);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -170%);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(255, 255, 153, 0.8);
+  margin-top: 140px;
+  /* Ajustado para que quede debajo del cono */
+  animation: caer 0.8s cubic-bezier(0.7, 0, 1, 1) forwards,
+    rebote 0.6s cubic-bezier(0.25, 1.2, 0.5, 1) 0.8s forwards;
+}
+
+/* Animación de la caída */
+@keyframes caer {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 35vh;
+  }
+}
+
+/* Animación de estiramiento de la cuerda */
+@keyframes estirar {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 35vh;
+  }
+}
+
+/* Animación del rebote suave */
+@keyframes rebote {
+  0% {
+    top: 35vh;
+  }
+
+  50% {
+    top: 30vh;
+    /* Rebote hacia arriba */
+  }
+
+  100% {
+    top: 33vh;
+    /* Posición final */
+  }
+}
+
+/* Retracción de la cuerda con el rebote */
+@keyframes retraer {
+  0% {
+    height: 35vh;
+  }
+
+  50% {
+    height: 30vh;
+  }
+
+  100% {
+    height: 33vh;
+  }
+}
+
+#lampara-container {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.animar-lampara .lampara {
+  animation: caer 0.8s cubic-bezier(0.7, 0, 1, 1) forwards,
+    rebote 0.6s cubic-bezier(0.25, 1.2, 0.5, 1) 0.8s forwards;
+}
+
+/* Contenedor principal */
+.SeccionMesaContainer {
+  height: 100vh;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+/* Mesa */
+.Mesa {
+  width: 150%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 2;
+}
+
+/* Contenedor de sillas */
+.SillaContainer {
+  position: absolute;
+  top: 82%;
+  /* Ajuste relativo a la mesa */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  /* Ajustar según el tamaño de la mesa */
+  height: 250px;
+}
+
+/* Estilo general de las sillas */
+.Silla {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  opacity: 0;
+  /* Ocultas por defecto con opacidad */
+  filter: brightness(1);
+  transition: all 0.5s ease-in-out;
+}
+
+/* Posiciones específicas de las sillas */
+.SillaBack {
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.SillaLeft {
+  left: -150%;
+  top: 0%;
+  width: 250px;
+  height: auto;
+  transform: translateY(-50%);
+}
+
+.SillaRight {
+  right: -150%;
+  top: 0%;
+  width: 250px;
+  height: auto;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+/* Clases condicionales con animación */
+.Sillas-1 .SillaBack,
+.Sillas-2 .SillaLeft,
+.Sillas-2 .SillaRight,
+.Sillas-3 .SillaLeft,
+.Sillas-3 .SillaBack,
+.Sillas-3 .SillaRight {
+  display: block;
+  opacity: 1;
+  /* Aparecen suavemente */
+}
+
+/* Sombra aplicada a la mesa y las sillas */
+.oscurecer {
+  transition: filter 0.5s ease-in-out;
+  filter: brightness(0.7);
+}
+
+/* Footer */
+footer {
+  background-color: white;
+  padding: 2% 5%;
+  text-align: center;
+  border-top: 0.2% solid black;
+}
+
+/* Contenedor principal */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Logo alineado con la bandera */
+.logo {
+  text-align: left;
+  width: 30%;
+}
+
+.logo h2 {
+  font-size: 2vw;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 4vw;
+  height: auto;
+  margin-left: 0.5vw;
+}
+
+/* Línea superior en el subtítulo */
+.logo h3 {
+  font-size: 1.5vw;
+  font-weight: normal;
+  border-top: 0.2vw solid black;
+  padding-top: 0.5vw;
+}
+
+/* Contenedor de información */
+.info-container {
+  display: flex;
+  gap: 5%;
+  width: 40%;
+  justify-content: center;
+}
+
+/* Contacto */
+.contact-info {
+  text-align: left;
+  width: 50%;
+}
+
+.contact-info h4 {
+  font-size: 1.2vw;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 0.5vw;
+}
+
+.contact-info p {
+  font-size: 1vw;
+  color: #555;
+  margin-bottom: 1vw;
+}
+
+/* Redes sociales */
+.social-container {
+  display: flex;
+  gap: 1.5vw;
+  justify-content: center;
+  width: 15%;
+}
+
+.social-container a {
+  background-color: #001f3f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.2vw;
+}
+
+/* Información final */
+.footer-bottom {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.footer-text {
+  font-family: "Birthstone", cursive;
+  font-size: 3.5vw;
+  font-style: italic;
+}
+
+.rights {
+  font-size: 1vw;
+  margin-top: 0.5vw;
+}
+
+/* Centrar el contenido del offcanvas */
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  text-align: left;
+  height: 100%;
+}
+
+/* Botón de llamada (Teléfono) */
+.call-button,
+.email-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #4caf50;
+  /* Color de fondo */
+  color: white;
+  /* Color del ícono */
+  border-radius: 25px;
+  /* Bordes redondeados */
+  width: 150px;
+  /* Ancho del botón */
+  height: 50px;
+  /* Alto del botón */
+  margin: 20px 0;
+  /* Espaciado */
+  font-size: 18px;
+  /* Tamaño del texto */
+  transition: background 0.3s;
+  /* Animación suave */
+}
+
+.call-button:hover {
+  background-color: #409143;
+  /* Color al pasar el mouse */
+}
+
+.icon-container {
+  align-items: center;
+}
+
+/* Estilo del mapa */
+iframe {
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.email-button:hover {
+  background-color: #409143;
+}
+
+/* Texto "Message Here" en blanco */
+.wixui-rich-text__text {
+  color: white !important;
+}
+
+/* Ajuste de títulos y párrafos */
+h1,
+h2,
+h4 {
+  margin: 10px 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+/* Estilo del contenedor principal */
+.w-340px {
+  width: 200px;
+  /* Reducir el ancho del calendario */
+}
+
+/* Calendario */
+.cal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Encabezado del mes */
+.cal-month {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 0;
+}
+
+.cal-btn {
+  background: none;
+  border: none;
+  padding: 0.1rem 0.2rem;
+  cursor: pointer;
+}
+
+.cal-btn:hover {
+  transform: scale(1.05);
+}
+
+.cal-month-name {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Días de la semana */
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+/* Días del mes */
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal-days .cal-btn {
+  padding: 0.4rem;
+  border-radius: 5px;
+  font-size: 0.7rem;
+}
+
+.cal-days .cal-btn:focus {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.cal-days .cal-btn:disabled {
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+/* Responsividad */
+@media (max-width: 576px) {
+  .w-340px {
+    width: 90%;
+  }
+
+  .cal-btn {
+    padding: 0.3rem;
+  }
+}
+
+/* Contenedor del calendario */
+.calendar-container {
+  position: relative;
+  max-width: 200px;
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+
+.nav-btn {
+  background: #8bc34a;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.days,
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.date,
+.empty {
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.date:hover,
+.selected {
+  background: #8bc34a;
+  color: white;
+}
+
+.reserva-btn {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  background: #8bc34a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* Clase para el fondo oscuro */
+.fondo-oscuro {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5) 68%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    radial-gradient(farthest-corner at 90% 10%, #694427, black);
+  color: white;
+  /* Color del texto en fondo oscuro */
+}
+
+/* Estilos del slider oscuro */
+.slider-oscuro {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #8bc34a;
+  /* Color normal (verde) */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Posiciones del slider */
+.left {
+  transform: translateX(0%);
+}
+
+.right {
+  transform: translateX(100%);
+}
+
+/* Cambiar el color del slider en modo oscuro */
+.fondo-oscuro .slider-oscuro {
+  background-color: #93b786;
+  /* Color para el modo oscuro */
+}
+
+/* Botones en modo oscuro */
+.fondo-oscuro .reserva-btn {
+  background-color: #93b786;
+  /* Color de fondo */
+  color: white;
+  /* Color del texto */
+}
