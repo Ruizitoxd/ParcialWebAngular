@@ -9,6 +9,7 @@
       <li><a href="#Nosotros">Nosotros</a></li>
       <li><a href="#Menu">Menú</a></li>
       <li><a href="#Reserva">Reserva</a></li>
+      <li><a href="#" data-bs-toggle="modal" data-bs-target="#login" >login</a></li>
       <li>
         <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasContacto"
           aria-controls="offcanvasContacto">Contacto</a>
@@ -17,6 +18,30 @@
     </ul>
   </nav>
 </header>
+
+<!-- Modal login -->
+<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="form-control mb-3 bg-white" placeholder="Email" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" class="form-control mb-3 bg-white" placeholder="*******" required>
+
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Imagen de inicio principal -->
 <div id="Inicio" class="Inicio">
@@ -87,21 +112,12 @@
 
 
 <div class="platillo">
-  <div class="marmol">
-    <div class="food-item"><img src="Carbonara.jpg" alt="Pasta carboanra">
-      <h1>Spaghetti alla Carbonara</h1>
-    </div>
-    <div class="food-item"><img src="Ossobuco.jpg" alt="Ossobuco">
-      <h2>Ossobuco alla Milanese</h2>
-    </div>
-    <div class="food-item"><img src="Fettuccine.jpg" alt="Fettuccine">
-      <h1>Fettuccine Alfredo</h1>
-    </div>
-    <div class="food-item"><img src="Pollo al Marsala.jpg" alt="Pollo">
-      <h4>Pollo al Marsala</h4>
-    </div>
-  </div>
+    <iframe width="320" height="550" src="https://www.instagram.com/p/DKKbbm6o58U/embed" frameborder="0"></iframe>
+    <iframe width="320" height="550" src="https://www.instagram.com/p/DJ3i9_2hIPL/embed" frameborder="0"></iframe>
+    <iframe width="320" height="550" src="https://www.instagram.com/p/DEUfnOnMspJ/embed" frameborder="0"></iframe>
+    <iframe width="320" height="550" src="https://www.instagram.com/p/C8uNgIiIwLC/embed" frameborder="0"></iframe>
 </div>
+
 
 <!-- Sección de reserva -->
 <div id="Reserva" class="Reserva">
