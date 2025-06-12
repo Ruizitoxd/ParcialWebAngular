@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../app/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-
+import { Review } from './model/review.model';
+import { ReviewService } from './services/review.service';
 
 declare var bootstrap: any;
 @Component({
@@ -119,64 +120,78 @@ export class App {
   email = '';
   password = '';
 
+  reviewText = '';
+  reviews: Review[] = [];
+  rating = 5; // valor predeterminado
+
   public isAuthenticated = false;
 
-  constructor(private authService: AuthService, private toastr: ToastrService) {  
-    this.authService.getAuthState().subscribe(user => {
-    this.isAuthenticated = !!user; // ← AQUÍ
-  });}
+  constructor(
+    private authService: AuthService,
+    private toastr: ToastrService,
+    private reviewService: ReviewService
+  ) {
+    this.authService.getAuthState().subscribe((user) => {
+      this.isAuthenticated = !!user; // ← AQUÍ
+    });
+    this.reviewService.getReviews().subscribe((reviews) => {
+      this.reviews = reviews;
+    });
+  }
 
   login() {
-    this.authService.login(this.email, this.password)
+    this.authService
+      .login(this.email, this.password)
       .then(() => {
         console.log('Login exitoso');
         this.toastr.success('Inicio de sesión exitoso');
         this.cerrarModalLogin(); // función que oculta el modal
       })
-      .catch(err => {
+      .catch((err) => {
         alert('Error al iniciar sesión: ');
         if (err.code === 'auth/email-already-in-use') {
-        alert('Email already in use')
+          alert('Email already in use');
         } else if (err.code === 'auth/invalid-email') {
-        alert('email invalido')
-        } else if (err. code === 'auth/weak-password') {
-        alert('Contraseña inválido')
-        } else if (err. code) {
-        alert('Something went wrong');}
+          alert('email invalido');
+        } else if (err.code === 'auth/weak-password') {
+          alert('Contraseña inválido');
+        } else if (err.code) {
+          alert('Something went wrong');
+        }
       });
   }
 
-
   register() {
-    this.authService.register(this.email, this.password)
-    .then(() => {
-       this.toastr.success('Registro exitoso');
-      this.cerrarModalRegistro(); // función que oculta el modal
-    })
+    this.authService
+      .register(this.email, this.password)
+      .then(() => {
+        this.toastr.success('Registro exitoso');
+        this.cerrarModalRegistro(); // función que oculta el modal
+      })
 
-      .catch(err => {
+      .catch((err) => {
         alert('Error al registrar: ');
         if (err.code === 'auth/email-already-in-use') {
-        alert('Email already in use')
+          alert('Email already in use');
         } else if (err.code === 'auth/invalid-email') {
-        alert('email invalido')
-        } else if (err. code === 'auth/weak-password') {
-        alert('Contraseña inválido')
-        } else if (err. code) {
-        alert('Something went wrong');}
+          alert('email invalido');
+        } else if (err.code === 'auth/weak-password') {
+          alert('Contraseña inválido');
+        } else if (err.code) {
+          alert('Something went wrong');
+        }
       });
-
   }
 
   cerrarModalLogin() {
     const modalElement = document.getElementById('login');
-    const modal = bootstrap.Modal.getInstance(modalElement); // necesitas tener la instancia
+    const modal = bootstrap.Modal.getInstance(modalElement); 
     modal?.hide();
   }
 
   cerrarModalRegistro() {
     const modalElement = document.getElementById('Registro');
-    const modal = bootstrap.Modal.getInstance(modalElement); // necesitas tener la instancia
+    const modal = bootstrap.Modal.getInstance(modalElement); 
     modal?.hide();
   }
   logout() {
@@ -185,5 +200,30 @@ export class App {
     });
   }
 
+  submitReview() {
+    if (this.reviewText.trim() && this.email && this.rating) {
+      const newReview: Review = {
+        userEmail: this.email,
+        content: this.reviewText,
+        rating: this.rating,
+        timestamp: Date.now(),
+      };
+
+      this.reviewService.addReview(newReview).then(() => {
+        this.reviewText = '';
+      });
+    }
+  }
+  getStarArray(count: number): number[] {
+    return Array.from({ length: count }, (_, i) => i + 1);
+  }
+
+  scrollHorizontal(event: WheelEvent) {
+  const container = event.currentTarget as HTMLElement;
+  if (event.deltaY !== 0) {
+    event.preventDefault();
+    container.scrollLeft += event.deltaY;
+  }
 }
 
+}

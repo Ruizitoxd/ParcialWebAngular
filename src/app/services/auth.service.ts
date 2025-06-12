@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 export class AuthService {
   constructor(private auth: Auth) {}
 
+  
+
   login(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);
   }

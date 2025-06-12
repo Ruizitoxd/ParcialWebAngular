@@ -1,7 +1,7 @@
 <!-- Encabezado de la página -->
 <header>
   <!--Logo de la página-->
-  <img src="Delicato_Logo.png" alt="Delicato Logo">
+  <img src="Delicato_Logo.png" alt="Delicato Logo" />
   <!-- Barra de navegación -->
   <nav>
     <ul>
@@ -9,33 +9,72 @@
       <li><a href="#Nosotros">Nosotros</a></li>
       <li><a href="#Menu">Menú</a></li>
       <li><a href="#Reserva">Reserva</a></li>
-      <li *ngIf="!isAuthenticated"><a href="#" data-bs-toggle="modal"  data-bs-target="#login" >login</a></li>
-      <li *ngIf="!isAuthenticated"><a href="#" data-bs-toggle="modal" data-bs-target="#Registro" >Registro</a></li>
-      <li *ngIf="isAuthenticated"><a href="#" (click)="logout()">Cerrar sesión</a></li>
-      <li>
-        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasContacto"
-          aria-controls="offcanvasContacto">Contacto</a>
+      <li *ngIf="!isAuthenticated">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#login">login</a>
       </li>
-
+      <li *ngIf="!isAuthenticated">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#Registro"
+          >Registro</a
+        >
+      </li>
+      <li *ngIf="isAuthenticated">
+        <a href="#" (click)="logout()">Cerrar sesión</a>
+      </li>
+      <li>
+        <a
+          href="#"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasContacto"
+          aria-controls="offcanvasContacto"
+          >Contacto</a
+        >
+      </li>
     </ul>
   </nav>
 </header>
 
 <!-- Modal login -->
-<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="login"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content bg-dark text-white">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="login()" #loginForm="ngForm">
           <label for="email">Email:</label>
-          <input [(ngModel)]="email" name="email" type="email" id="login-email" class="form-control mb-3 bg-white" placeholder="Email" required>
+          <input
+            [(ngModel)]="email"
+            name="email"
+            type="email"
+            id="login-email"
+            class="form-control mb-3 bg-white"
+            placeholder="Email"
+            required
+          />
 
           <label for="password">Password:</label>
-          <input [(ngModel)]="password" name="password" type="password" id="login-password" class="form-control mb-3 bg-white" placeholder="*******" required>
+          <input
+            [(ngModel)]="password"
+            name="password"
+            type="password"
+            id="login-password"
+            class="form-control mb-3 bg-white"
+            placeholder="*******"
+            required
+          />
 
           <button type="submit" class="btn btn-primary w-100">Login</button>
         </form>
@@ -44,22 +83,48 @@
   </div>
 </div>
 
-
 <!-- Modal Registro -->
-<div class="modal fade" id="Registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="Registro"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content bg-dark text-white">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Registro</h1>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="register()" #loginForm="ngForm">
           <label for="email">Email:</label>
-          <input [(ngModel)]="email" name="email" type="email" id="login-email" class="form-control mb-3 bg-white" placeholder="Email" required>
+          <input
+            [(ngModel)]="email"
+            name="email"
+            type="email"
+            id="login-email"
+            class="form-control mb-3 bg-white"
+            placeholder="Email"
+            required
+          />
 
           <label for="password">Password:</label>
-          <input [(ngModel)]="password" name="password" type="password" id="login-password" class="form-control mb-3 bg-white" placeholder="*******" required>
+          <input
+            [(ngModel)]="password"
+            name="password"
+            type="password"
+            id="login-password"
+            class="form-control mb-3 bg-white"
+            placeholder="*******"
+            required
+          />
 
           <button type="submit" class="btn btn-primary w-100">Login</button>
         </form>
@@ -67,8 +132,6 @@
     </div>
   </div>
 </div>
-
-
 
 <!-- Imagen de inicio principal -->
 <div id="Inicio" class="Inicio">
@@ -85,11 +148,18 @@
   <div class="AtmosferaDivider">
     <div class="AtmosferaTexto">
       <h2>Atmósfera Fascinante</h2>
-      <p>El Restaurante Delicato es ideal para sus momentos más importantes, para una cena romántica o para un
-        almuerzo familiar.</p>
+      <p>
+        El Restaurante Delicato es ideal para sus momentos más importantes, para
+        una cena romántica o para un almuerzo familiar.
+      </p>
     </div>
-    <a href="https://guide.michelin.com/it/it/lazio/contigliano_1843189/ristorante/delicato" target="_blank"><img
-        src="MICHELIN-2025_Selected_E-label_Logo.png" alt="Estrella MICHELIN"></a>
+    <a
+      href="https://guide.michelin.com/it/it/lazio/contigliano_1843189/ristorante/delicato"
+      target="_blank"
+      ><img
+        src="MICHELIN-2025_Selected_E-label_Logo.png"
+        alt="Estrella MICHELIN"
+    /></a>
   </div>
 
   <!-- Sección de gastronomía autentica -->
@@ -101,10 +171,12 @@
     </div>
     <div class="GastronomiaAutenticaDescripcionContainer">
       <div class="GastronomiaAutenticaDescripcion">
-        <p>Un auténtico proyecto gastronómico, una cocina básica sostenible que nace del amor por nuestro
-          territorio, ingredientes tradicionales procesados con maestría a través de técnicas de cocina
-          contemporáneas.
-          Cocina de proximidad y memoria gastronómica, sin excesos estilísticos.</p>
+        <p>
+          Un auténtico proyecto gastronómico, una cocina básica sostenible que
+          nace del amor por nuestro territorio, ingredientes tradicionales
+          procesados con maestría a través de técnicas de cocina contemporáneas.
+          Cocina de proximidad y memoria gastronómica, sin excesos estilísticos.
+        </p>
       </div>
     </div>
   </div>
@@ -112,22 +184,19 @@
 
 <!-- Sección de Carrusel-->
 <div class="Menu" id="Menu">
-
   <h1 class="Menu-titulo">Nuestros Platos</h1>
   <div class="linea"></div>
-
-
 
   <!-- Contenedor del Carrusel -->
   <div class="contenedor-carrusel">
     <button id="prevBtn">❮</button>
     <div id="carrusel" class="carrusel">
-      <div class="item"><img src="menu-carrusel1.jpg" alt="Plato 1"></div>
-      <div class="item"><img src="menu-carrusel2.jpg" alt="Plato 2"></div>
-      <div class="item"><img src="menu-carrusel3.jpg" alt="Plato 3"></div>
-      <div class="item"><img src="menu-carrusel4.jpg" alt="Plato 4"></div>
-      <div class="item"><img src="menu-carrusel5.jpg" alt="Plato 5"></div>
-      <div class="item"><img src="menu-carrusel6.jpg" alt="Plato 6"></div>
+      <div class="item"><img src="menu-carrusel1.jpg" alt="Plato 1" /></div>
+      <div class="item"><img src="menu-carrusel2.jpg" alt="Plato 2" /></div>
+      <div class="item"><img src="menu-carrusel3.jpg" alt="Plato 3" /></div>
+      <div class="item"><img src="menu-carrusel4.jpg" alt="Plato 4" /></div>
+      <div class="item"><img src="menu-carrusel5.jpg" alt="Plato 5" /></div>
+      <div class="item"><img src="menu-carrusel6.jpg" alt="Plato 6" /></div>
     </div>
     <button id="nextBtn">❯</button>
   </div>
@@ -137,12 +206,71 @@
   <div class="dots" id="dots"></div>
 </div>
 
-
 <div class="platillo">
-    <iframe width="320" height="550" src="https://www.instagram.com/p/DKKbbm6o58U/embed" frameborder="0"></iframe>
-    <iframe width="320" height="550" src="https://www.instagram.com/p/DJ3i9_2hIPL/embed" frameborder="0"></iframe>
-    <iframe width="320" height="550" src="https://www.instagram.com/p/DEUfnOnMspJ/embed" frameborder="0"></iframe>
-    <iframe width="320" height="550" src="https://www.instagram.com/p/C8uNgIiIwLC/embed" frameborder="0"></iframe>
+  <iframe
+    width="320"
+    height="550"
+    src="https://www.instagram.com/p/DKKbbm6o58U/embed"
+    frameborder="0"
+  ></iframe>
+  <iframe
+    width="320"
+    height="550"
+    src="https://www.instagram.com/p/DJ3i9_2hIPL/embed"
+    frameborder="0"
+  ></iframe>
+  <iframe
+    width="320"
+    height="550"
+    src="https://www.instagram.com/p/DEUfnOnMspJ/embed"
+    frameborder="0"
+  ></iframe>
+  <iframe
+    width="320"
+    height="550"
+    src="https://www.instagram.com/p/C8uNgIiIwLC/embed"
+    frameborder="0"
+  ></iframe>
+</div>
+
+<!-- -->
+
+<!-- reviews.component.html -->
+<div class="review-section">
+  <div *ngIf="isAuthenticated; else loginMessage" class="review-form">
+    <h3>Escribe una reseña</h3>
+    <textarea [(ngModel)]="reviewText" rows="4" cols="50"></textarea>
+
+    <div class="form-group">
+      <label for="rating">Calificación:</label>
+      <select id="rating" [(ngModel)]="rating" class="form-control">
+        <option [value]="5">⭐⭐⭐⭐⭐</option>
+        <option [value]="4">⭐⭐⭐⭐</option>
+        <option [value]="3">⭐⭐⭐</option>
+        <option [value]="2">⭐⭐</option>
+        <option [value]="1">⭐</option>
+      </select>
+    </div>
+
+    <button (click)="submitReview()">Publicar reseña</button>
+  </div>
+
+  <ng-template #loginMessage>
+    <p class="login-msg">Inicia sesión para dejar una reseña.</p>
+  </ng-template>
+
+  <h3 class="review-title">Reseñas</h3>
+<div class="carousel-container " (wheel)="scrollHorizontal($event)">
+  <div class="carousel-wrapper">
+    <div class="review-card" *ngFor="let review of reviews">
+      <p><strong>{{ review.userEmail }}</strong></p>
+      <p>{{ review.content }}</p>
+      <div class="stars">
+        <span *ngFor="let star of getStarArray(review.rating)">★</span>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 
@@ -157,13 +285,13 @@
       <!-- Formulario para la reserva -->
       <form>
         <label for="nombre">Nombre</label>
-        <input type="text" class="form-control form-control-sm" id="nombre">
+        <input type="text" class="form-control form-control-sm" id="nombre" />
 
         <label for="email">Correo</label>
-        <input type="email" class="form-control form-control-sm" id="email">
+        <input type="email" class="form-control form-control-sm" id="email" />
 
         <label for="telefono">Teléfono</label>
-        <input type="tel" class="form-control form-control-sm" id="telefono">
+        <input type="tel" class="form-control form-control-sm" id="telefono" />
 
         <div class="GrupoBotonesTipoCena">
           <div class="slider slider-oscuro left"></div>
@@ -181,7 +309,11 @@
                   <i class="fas fa-users"></i>
                   <span class="arrow">&#9660;</span>
                 </button>
-                <input type="text" class="personas-dropdown-input" placeholder="Personas">
+                <input
+                  type="text"
+                  class="personas-dropdown-input"
+                  placeholder="Personas"
+                />
               </div>
               <div class="personas-dropdown-content">
                 <ul class="personas-dropdown-menu">
@@ -199,7 +331,11 @@
                   <i class="fa-regular fa-clock"></i>
                   <span class="arrow">&#9660;</span>
                 </button>
-                <input type="text" class="hora-dropdown-input" placeholder="Hora">
+                <input
+                  type="text"
+                  class="hora-dropdown-input"
+                  placeholder="Hora"
+                />
               </div>
               <div class="hora-dropdown-content">
                 <ul class="hora-dropdown-menu">
@@ -214,7 +350,6 @@
                 </ul>
               </div>
             </div>
-
           </div>
 
           <!-- Calendario Date Picker -->
@@ -236,11 +371,17 @@
     </div>
 
     <div class="SeccionMesa">
-      <div class="Mesa"><img src="Mesa.png" alt="Imagen_Mesa"></div>
+      <div class="Mesa"><img src="Mesa.png" alt="Imagen_Mesa" /></div>
       <div class="SillaContainer Sillas-0" id="silla-container">
-        <div class="Silla SillaLeft" id="Left_Seat"><img src="Silla_Lado.png" alt="Left_Seat"></div>
-        <div class="Silla SillaBack" id="Back_Seat"><img src="Silla.png" alt="Back_Seat"></div>
-        <div class="Silla SillaRight" id="Right_Seat"><img src="Silla_Lado.png" alt="Right_Seat"></div>
+        <div class="Silla SillaLeft" id="Left_Seat">
+          <img src="Silla_Lado.png" alt="Left_Seat" />
+        </div>
+        <div class="Silla SillaBack" id="Back_Seat">
+          <img src="Silla.png" alt="Back_Seat" />
+        </div>
+        <div class="Silla SillaRight" id="Right_Seat">
+          <img src="Silla_Lado.png" alt="Right_Seat" />
+        </div>
       </div>
     </div>
   </div>
@@ -251,7 +392,7 @@
   <div class="footer-container">
     <!-- Logo izquierda -->
     <div class="logo">
-      <h2>DELICATO <img src="Bandera italia.png" alt="Bandera de italia"></h2>
+      <h2>DELICATO <img src="Bandera italia.png" alt="Bandera de italia" /></h2>
       <h3>RESTAURANTE</h3>
     </div>
 
@@ -271,8 +412,12 @@
 
     <!-- Redes sociales -->
     <div class="social-container">
-      <a href="https://www.instagram.com/ristorantedelicato/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.facebook.com/ristorantedelicato" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/ristorantedelicato/" target="_blank"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+      <a href="https://www.facebook.com/ristorantedelicato" target="_blank"
+        ><i class="fa-brands fa-facebook-f"></i
+      ></a>
     </div>
   </div>
 
@@ -282,9 +427,19 @@
   </div>
 </footer>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasContacto" aria-labelledby="offcanvasContactoLabel">
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="offcanvasContacto"
+  aria-labelledby="offcanvasContactoLabel"
+>
   <div class="offcanvas-header">
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Cerrar"
+    ></button>
   </div>
 
   <div class="offcanvas-body">
@@ -314,12 +469,14 @@
       <div class="correo">
         <h4>Correo</h4>
         <p>info&#64;ristorantedelicato.it</p>
-        <a href="mailto:info&#64;ristorantedelicato.it?subject=Consulta&body=Hola, me gustaría más información."
-          class="email-button" title="Enviar correo">
+        <a
+          href="mailto:info&#64;ristorantedelicato.it?subject=Consulta&body=Hola, me gustaría más información."
+          class="email-button"
+          title="Enviar correo"
+        >
           <div class="icon-container">📧 Enviar</div>
         </a>
       </div>
-
     </div>
 
     <div>
@@ -327,10 +484,14 @@
       <p>Via Umberto I, 2, 02043 Contigliano RI</p>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1900.6259912746705!2d12.76524883049025!3d42.40911966870392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f0169f47aa0e5%3A0x8d39707f4b52b82c!2sDELICATO%20%7C%20Ristorante!5e1!3m2!1sit!2sit!4v1742417629730!5m2!1sit!2sit"
-        width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
+        width="300"
+        height="150"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      >
       </iframe>
-
     </div>
   </div>
 </div>
