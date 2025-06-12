@@ -9,8 +9,9 @@
       <li><a href="#Nosotros">Nosotros</a></li>
       <li><a href="#Menu">Menú</a></li>
       <li><a href="#Reserva">Reserva</a></li>
-      <li><a href="#" data-bs-toggle="modal" data-bs-target="#login" >login</a></li>
-      <li><a href="#" data-bs-toggle="modal" data-bs-target="#Registro" >Registro</a></li>
+      <li *ngIf="!isAuthenticated"><a href="#" data-bs-toggle="modal"  data-bs-target="#login" >login</a></li>
+      <li *ngIf="!isAuthenticated"><a href="#" data-bs-toggle="modal" data-bs-target="#Registro" >Registro</a></li>
+      <li *ngIf="isAuthenticated"><a href="#" (click)="logout()">Cerrar sesión</a></li>
       <li>
         <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasContacto"
           aria-controls="offcanvasContacto">Contacto</a>

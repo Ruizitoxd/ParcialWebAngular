@@ -1,3 +1,12 @@
+@import 'ngx-toastr/toastr';
+
+.toast-success {
+  background: linear-gradient(to right, #00b09b1d, #ffffff) !important;
+  color: rgb(0, 0, 0) !important;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
 /* You can add global styles to this file, and also import other style files */
 * {
   margin: 0;
@@ -9,3 +18,4 @@ html {
   scroll-behavior: smooth;
   /* Animación suave al scrollear */
 }
+

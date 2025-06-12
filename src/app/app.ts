@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../app/services/auth.service';
 import { FormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+
+
+declare var bootstrap: any;
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
@@ -115,19 +119,71 @@ export class App {
   email = '';
   password = '';
 
-  constructor(private authService: AuthService) {}
+  public isAuthenticated = false;
+
+  constructor(private authService: AuthService, private toastr: ToastrService) {  
+    this.authService.getAuthState().subscribe(user => {
+    this.isAuthenticated = !!user; // ← AQUÍ
+  });}
 
   login() {
     this.authService.login(this.email, this.password)
-      .then(() => console.log('Login correcto'))
-      .catch(err => console.error('Error al iniciar sesión', err));
+      .then(() => {
+        console.log('Login exitoso');
+        this.toastr.success('Inicio de sesión exitoso');
+        this.cerrarModalLogin(); // función que oculta el modal
+      })
+      .catch(err => {
+        alert('Error al iniciar sesión: ');
+        if (err.code === 'auth/email-already-in-use') {
+        alert('Email already in use')
+        } else if (err.code === 'auth/invalid-email') {
+        alert('email invalido')
+        } else if (err. code === 'auth/weak-password') {
+        alert('Contraseña inválido')
+        } else if (err. code) {
+        alert('Something went wrong');}
+      });
   }
+
+
   register() {
     this.authService.register(this.email, this.password)
-      .then(() => console.log('Registro correcto'))
-      .catch(err => console.error('Error al registrar', err));
+    .then(() => {
+       this.toastr.success('Registro exitoso');
+      this.cerrarModalRegistro(); // función que oculta el modal
+    })
+
+      .catch(err => {
+        alert('Error al registrar: ');
+        if (err.code === 'auth/email-already-in-use') {
+        alert('Email already in use')
+        } else if (err.code === 'auth/invalid-email') {
+        alert('email invalido')
+        } else if (err. code === 'auth/weak-password') {
+        alert('Contraseña inválido')
+        } else if (err. code) {
+        alert('Something went wrong');}
+      });
+
+  }
+
+  cerrarModalLogin() {
+    const modalElement = document.getElementById('login');
+    const modal = bootstrap.Modal.getInstance(modalElement); // necesitas tener la instancia
+    modal?.hide();
+  }
+
+  cerrarModalRegistro() {
+    const modalElement = document.getElementById('Registro');
+    const modal = bootstrap.Modal.getInstance(modalElement); // necesitas tener la instancia
+    modal?.hide();
+  }
+  logout() {
+    this.authService.logout().then(() => {
+      console.log('Sesión cerrada');
+    });
   }
 
 }
 
- 
