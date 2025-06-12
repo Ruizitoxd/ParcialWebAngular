@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-
+import { AuthService } from '../app/services/auth.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [FormsModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
@@ -111,4 +112,22 @@ export class App {
     nextBtn.addEventListener('click', siguiente);
     prevBtn.addEventListener('click', anterior);
   }
+  email = '';
+  password = '';
+
+  constructor(private authService: AuthService) {}
+
+  login() {
+    this.authService.login(this.email, this.password)
+      .then(() => console.log('Login correcto'))
+      .catch(err => console.error('Error al iniciar sesión', err));
+  }
+  register() {
+    this.authService.register(this.email, this.password)
+      .then(() => console.log('Registro correcto'))
+      .catch(err => console.error('Error al registrar', err));
+  }
+
 }
+
+ 
