@@ -32,8 +32,8 @@ header .black {
 /* Imágenes de encabezado*/
 header img {
   height: auto;
-  width: 12%;
-  margin-left: 5%;
+  width: 10vw;
+  margin-left: 2vw;
 
   transition: all 0.3s ease-in-out;
   /* Transición para el tamaño del header*/
@@ -51,7 +51,7 @@ nav ul {
   list-style: none;
   gap: 3em;
   margin: 0;
-  margin-right: 100px;
+  margin-right: 2vw;
   padding: 0;
 }
 
@@ -109,6 +109,10 @@ nav ul li a:hover {
   font-size: 2vw;
   letter-spacing: 3px;
   padding: 0 3em;
+}
+
+.SobreNosotros {
+  box-shadow: 0px 16px 18px 0px rgba(63, 63, 31, 0.3);
 }
 
 .AtmosferaDivider {
@@ -218,7 +222,7 @@ nav ul li a:hover {
 .Menu {
   text-align: center;
   margin-top: 150px;
-  height: 100vh;
+  height: 75vh;
   position: relative;
 }
 
@@ -235,7 +239,7 @@ nav ul li a:hover {
   margin: 0 auto;
   /* Centrar la línea */
   margin-top: 40px;
-  margin-bottom: 200px;
+  margin-bottom: 3vh;
 
   /* Gradiente para efecto de desvanecido */
   background: linear-gradient(
@@ -287,9 +291,10 @@ nav ul li a:hover {
   min-width: 300px;
   box-sizing: border-box;
   transition: transform 0.8s ease;
+  border-radius: 12px;
 }
 
-img {
+.item img {
   width: 100%;
   border-radius: 12px;
 }
@@ -336,139 +341,161 @@ img {
   background: #4caf50;
 }
 
-.platillo {
-  position: relative;
+/* Sección de galería interior */
+.galeria-interior-container {
+  background: #1d1d1d;
+  color: white;
+  text-align: center;
+}
+
+.galeria-interior-container h1 {
+  font-family: "Quattrocento", serif;
+  font-size: 5vw;
+  margin: 0;
+  padding-top: 6vh;
+}
+
+.galeria-interior {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  /* Alinea los elementos a la derecha */
-  justify-content: center;
-  color: black;
-  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 1rem;
+  background: #1d1d1d;
 }
 
-/* Sección de platos fuertes*/
-.platillo div {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  /* Espacio entre la imagen y el texto */
-  width: 42%;
-  /* Define un ancho para la sección de cada platillo */
+.lineaBlanca {
+  width: 95%;
+  /* Ajusta el largo de la línea */
+  height: 3px;
+  /* Grosor de la línea */
+  margin: 0 auto;
+  /* Centrar la línea */
+  margin-top: 40px;
+  margin-bottom: 3vh;
+
+  /* Gradiente para efecto de desvanecido */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 255, 255) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
-.marmol {
-  width: 40%;
-  /* Ajusta el ancho de la sección de mármol */
+.galeria-scroll {
+  display: flex;
+  gap: 1rem;
+  height: 30vh; /* Altura fija similar a la galería de la imagen */
+  align-items: stretch;
+}
+
+.galeria-scroll img {
+  object-fit: cover;
   height: 100%;
-  /* Permite que la altura se adapte al contenido */
-  background: url("../../public/Fondo_Marmol.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.galeria-scroll img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Ocultar scrollbar para diseño más limpio */
+.galeria-interior::-webkit-scrollbar {
+  display: none;
+}
+.galeria-interior {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.instagram-section {
+  text-align: center;
+}
+
+.instagram-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.column {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.iframe-wrapper {
   display: flex;
   flex-direction: column;
-  /* Alinea los elementos en columna */
-  align-items: center;
-  /* Centra los elementos horizontalmente */
-  gap: 15px;
-  /* Espaciado entre los elementos */
+  animation: scroll-vertical 30s linear infinite;
 }
 
-.food-item h4 {
-  font-size: 350%;
-}
-
-.food-item h2 {
-  font-size: 260%;
-}
-
-.food-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  /* Espacio entre la imagen y el nombre */
-}
-
-.food-item img {
-  width: 90%;
-  /* Ajusta el tamaño de la imagen */
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-  border-radius: 15px;
-}
-
-.food-item img:hover {
-  transform: translateY(-5px);
-}
-
-/* Fondo difuminado */
-.platillo::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.column iframe {
   width: 100%;
-  height: 100%;
-  background: url("../../public/Buffet_Italiano.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  filter: blur(10px);
-  z-index: -1;
+  height: 550px;
+  border: none;
+  margin-bottom: 1rem;
 }
 
-/* Estilos para la imagen en pantalla completa */
-.fullscreen-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  /* Fondo oscuro */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease-in-out;
+/* Hacia arriba (por defecto) */
+.iframe-wrapper {
+  animation: scroll-vertical 30s linear infinite;
 }
 
-.fullscreen-overlay img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
+/* Hacia abajo */
+.down .iframe-wrapper {
+  animation: scroll-vertical-down 30s linear infinite;
 }
 
-.fullscreen-overlay.active {
-  opacity: 1;
-  visibility: visible;
+/* Animación continua */
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  } /* Mueve hasta la mitad porque duplicamos */
 }
 
-/* Cursor para cerrar */
-.fullscreen-overlay::after {
-  content: "✖";
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 30px;
-  color: white;
-  cursor: pointer;
+@keyframes scroll-vertical-down {
+  0% {
+    transform: translateY(-50%);
+  } /* Empieza desde la mitad del contenido */
+  100% {
+    transform: translateY(0);
+  } /* Llega al inicio (parte duplicada) */
+}
+
+/* Responsive: 4 → 2 → 1 columnas */
+@media (max-width: 1024px) {
+  .instagram-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .instagram-gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Sección para la reserva */
 .Reserva {
-  background-image: radial-gradient(farthest-corner at 90% 10%, #694427, black);
+  background-image: radial-gradient(
+    rgba(139, 195, 74, 0.5) 10%,
+    rgba(0, 0, 0, 0.8)
+  );
   height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   transition: background-color 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
@@ -485,7 +512,6 @@ img {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   height: 85%;
   width: 30%;
-  margin-left: 5%;
 
   display: flex;
   flex-direction: column;
@@ -527,7 +553,6 @@ img {
 }
 
 /* Cambio de input para la caja */
-
 .form-control {
   font-family: "Quattrocento", serif;
   color: #707070;
@@ -769,216 +794,51 @@ img {
   display: block !important;
 }
 
-/* Responsividad */
-@media (max-width: 576px) {
-  .w-340px {
-    width: 100%;
-  }
-
-  .cal-btn {
-    padding: 0.5rem;
-  }
+/* Cambiar el color del día seleccionado */
+::ng-deep .flatpickr-day.selected,
+::ng-deep .flatpickr-day.startRange,
+::ng-deep .flatpickr-day.endRange,
+::ng-deep .flatpickr-day.selected:focus,
+::ng-deep .flatpickr-day.selected:hover {
+  background: #8bc34a;
+  border-color: #8bc34a;
+  color: white;
 }
 
-.LinternaContenedor {
-  position: relative;
-  top: -100%;
-  left: 30%;
+::ng-deep .flatpickr-day:hover {
+  background: #c5e1a5;
+  border-color: #c5e1a5;
 }
 
-/* Cuerda de la lámpara */
-.cuerda {
-  width: 2px;
-  background: #555;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: estirar 0.8s cubic-bezier(0.7, 0, 1, 1) forwards,
-    retraer 0.6s cubic-bezier(0.25, 1.2, 0.5, 1) 0.8s forwards;
+/* Flechas y título del mes */
+::ng-deep .flatpickr-months .flatpickr-prev-month,
+::ng-deep .flatpickr-months .flatpickr-next-month,
+::ng-deep .flatpickr-months .flatpickr-month {
+  color: #8bc34a;
 }
 
-/* Cono de la lámpara (doble de tamaño y negro) */
-.cono {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  width: 0;
-  height: 0;
-  border-left: 90px solid transparent;
-  /* Lados del cono (duplicado) */
-  border-right: 90px solid transparent;
-  /* Lados del cono (duplicado) */
-  border-bottom: 140px solid #000;
-  /* Cono negro (duplicado) */
-  z-index: 2;
-  /* Encima de la esfera */
-  margin-top: 40px;
-  /* Ajustado para que quede a la mitad */
-  animation: caer 0.8s cubic-bezier(0.7, 0, 1, 1) forwards,
-    rebote 0.6s cubic-bezier(0.25, 1.2, 0.5, 1) 0.8s forwards;
+/* Eliminar bordes del dropdown de mes y año */
+::ng-deep .flatpickr-monthDropdown-months,
+::ng-deep .flatpickr-current-month input.cur-year {
+  border: none !important;
+  background: transparent !important;
+  color: #8bc34a !important;
+  font-weight: bold;
+  outline: none;
+  cursor: default;
+  appearance: none;
+  text-align: center;
 }
 
-/* Esfera (luz) de la lámpara */
-.lampara {
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle, #fff7b3 20%, #8bc34a 80%);
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -170%);
-  border-radius: 50%;
-  box-shadow: 0 0 50px rgba(255, 255, 153, 0.8);
-  margin-top: 140px;
-  /* Ajustado para que quede debajo del cono */
-  animation: caer 0.8s cubic-bezier(0.7, 0, 1, 1) forwards,
-    rebote 0.6s cubic-bezier(0.25, 1.2, 0.5, 1) 0.8s forwards;
+/* Ocultar el ícono desplegable del año */
+::ng-deep .flatpickr-current-month .numInputWrapper::after {
+  display: none;
 }
 
-/* Animación de la caída */
-@keyframes caer {
-  from {
-    top: 0;
-  }
-
-  to {
-    top: 35vh;
-  }
-}
-
-/* Animación de estiramiento de la cuerda */
-@keyframes estirar {
-  from {
-    height: 0;
-  }
-
-  to {
-    height: 35vh;
-  }
-}
-
-/* Animación del rebote suave */
-@keyframes rebote {
-  0% {
-    top: 35vh;
-  }
-
-  50% {
-    top: 30vh;
-    /* Rebote hacia arriba */
-  }
-
-  100% {
-    top: 33vh;
-    /* Posición final */
-  }
-}
-
-/* Retracción de la cuerda con el rebote */
-@keyframes retraer {
-  0% {
-    height: 35vh;
-  }
-
-  50% {
-    height: 30vh;
-  }
-
-  100% {
-    height: 33vh;
-  }
-}
-
-#lampara-container {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.animar-lampara .lampara {
-  animation: caer 0.8s cubic-bezier(0.7, 0, 1, 1) forwards,
-    rebote 0.6s cubic-bezier(0.25, 1.2, 0.5, 1) 0.8s forwards;
-}
-
-/* Contenedor principal */
-.SeccionMesaContainer {
-  height: 100vh;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  position: relative;
-}
-
-/* Mesa */
-.Mesa {
-  width: 150%;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 2;
-}
-
-/* Contenedor de sillas */
-.SillaContainer {
-  position: absolute;
-  top: 82%;
-  /* Ajuste relativo a la mesa */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20%;
-  /* Ajustar según el tamaño de la mesa */
-  height: 250px;
-}
-
-/* Estilo general de las sillas */
-.Silla {
-  position: absolute;
-  width: 200px;
-  height: auto;
-  opacity: 0;
-  /* Ocultas por defecto con opacidad */
-  filter: brightness(1);
-  transition: all 0.5s ease-in-out;
-}
-
-/* Posiciones específicas de las sillas */
-.SillaBack {
-  top: -100%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.SillaLeft {
-  left: -150%;
-  top: 0%;
-  width: 250px;
-  height: auto;
-  transform: translateY(-50%);
-}
-
-.SillaRight {
-  right: -150%;
-  top: 0%;
-  width: 250px;
-  height: auto;
-  transform: translateY(-50%) scaleX(-1);
-}
-
-/* Clases condicionales con animación */
-.Sillas-1 .SillaBack,
-.Sillas-2 .SillaLeft,
-.Sillas-2 .SillaRight,
-.Sillas-3 .SillaLeft,
-.Sillas-3 .SillaBack,
-.Sillas-3 .SillaRight {
-  display: block;
-  opacity: 1;
-  /* Aparecen suavemente */
-}
-
-/* Sombra aplicada a la mesa y las sillas */
-.oscurecer {
-  transition: filter 0.5s ease-in-out;
-  filter: brightness(0.7);
+/* Colorear los días de la semana */
+::ng-deep .flatpickr-weekday {
+  color: #8bc34a;
+  font-weight: bold;
 }
 
 /* Footer */

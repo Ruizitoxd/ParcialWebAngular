@@ -1,11 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
+
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../app/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Review } from './model/review.model';
 import { ReviewService } from './services/review.service';
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
+import emailjs from 'emailjs-com';
 
 declare var bootstrap: any;
 @Component({
@@ -15,11 +24,24 @@ declare var bootstrap: any;
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
-export class App {
+export class App implements AfterViewInit {
   protected title = 'PaginaWebAngular';
+  isShrunk = false;
+
+  @ViewChild('headerRef') headerElement!: ElementRef<HTMLElement>;
+
+  private initialHeight = 0;
+
+  ngOnInit() {
+    this.onWindowScroll();
+  }
 
   ngAfterViewInit(): void {
-    // Aquí va todo tu código migrado de TypeScript (lo que ya tienes)
+    // Guardamos la altura original del header
+    this.initialHeight = this.headerElement.nativeElement.offsetHeight;
+    this.setHeaderHeight(this.initialHeight);
+    this.onWindowScroll(); // Para ajustar si se recarga con scroll
+
     const carrusel = document.getElementById('carrusel') as HTMLElement;
     const prevBtn = document.getElementById('prevBtn') as HTMLButtonElement;
     const nextBtn = document.getElementById('nextBtn') as HTMLButtonElement;
@@ -116,7 +138,18 @@ export class App {
 
     nextBtn.addEventListener('click', siguiente);
     prevBtn.addEventListener('click', anterior);
+
+    setTimeout(() => {
+      flatpickr('#datepicker', {
+        dateFormat: 'Y-m-d',
+        defaultDate: new Date(),
+        onChange: (selectedDates, dateStr) => {
+          console.log('Fecha seleccionada:', dateStr);
+        },
+      });
+    }, 0);
   }
+
   email = '';
   password = '';
 
@@ -185,13 +218,13 @@ export class App {
 
   cerrarModalLogin() {
     const modalElement = document.getElementById('login');
-    const modal = bootstrap.Modal.getInstance(modalElement); 
+    const modal = bootstrap.Modal.getInstance(modalElement);
     modal?.hide();
   }
 
   cerrarModalRegistro() {
     const modalElement = document.getElementById('Registro');
-    const modal = bootstrap.Modal.getInstance(modalElement); 
+    const modal = bootstrap.Modal.getInstance(modalElement);
     modal?.hide();
   }
   logout() {
@@ -219,11 +252,177 @@ export class App {
   }
 
   scrollHorizontal(event: WheelEvent) {
-  const container = event.currentTarget as HTMLElement;
-  if (event.deltaY !== 0) {
-    event.preventDefault();
-    container.scrollLeft += event.deltaY;
+    const container = event.currentTarget as HTMLElement;
+    if (event.deltaY !== 0) {
+      event.preventDefault();
+      container.scrollLeft += event.deltaY;
+    }
   }
-}
 
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    this.isShrunk = scrollY > 50;
+    const newHeight = this.isShrunk
+      ? this.initialHeight / 2
+      : this.initialHeight;
+    this.setHeaderHeight(newHeight);
+  }
+
+  private setHeaderHeight(height: number) {
+    this.headerElement.nativeElement.style.height = `${height}px`;
+  }
+
+  //Activar botones deslizables
+  tipoSeleccionado = 'almuerzo';
+
+  seleccionarTipo(tipo: string) {
+    this.tipoSeleccionado = tipo;
+    const slider = document.getElementById('sliderToggle');
+    const btnAlmuerzo = document.getElementById('btn-almuerzo');
+    const btnCena = document.getElementById('btn-cena');
+
+    if (slider) {
+      slider.classList.remove('left', 'right');
+      slider.classList.add(tipo === 'almuerzo' ? 'left' : 'right');
+    }
+
+    btnAlmuerzo?.classList.remove('active');
+    btnCena?.classList.remove('active');
+
+    if (tipo === 'almuerzo') {
+      btnAlmuerzo?.classList.add('active');
+    } else {
+      btnCena?.classList.add('active');
+    }
+  }
+
+  //Activar dropdwons
+  dropdownVisible = {
+    personas: false,
+    hora: false,
+  };
+
+  toggleDropdown(tipo: 'personas' | 'hora') {
+    this.dropdownVisible[tipo] = !this.dropdownVisible[tipo];
+    const content = document.querySelector(`.${tipo}-dropdown-content`);
+    if (content) {
+      content.classList.toggle(`${tipo}-show-menu`, this.dropdownVisible[tipo]);
+    }
+  }
+
+  cantidadPersonas: string = '';
+  horaSeleccionada: string = '';
+
+  // Selección desde el menú
+  seleccionarPersona(valor: number) {
+    if (valor <= 3) {
+      this.cantidadPersonas = valor.toString();
+    } else {
+      this.cantidadPersonas = 'Más de 3';
+    }
+
+    this.dropdownVisible.personas = false;
+  }
+
+  seleccionarHora(hora: string) {
+    this.horaSeleccionada = hora;
+    this.dropdownVisible.hora = false;
+  }
+
+  validarCantidadPersonas() {
+    const num = parseInt(this.cantidadPersonas);
+    if (isNaN(num) || num < 1) {
+      this.cantidadPersonas = '1';
+    } else if (num > 3) {
+      this.cantidadPersonas = 'Más de 3';
+    } else {
+      this.cantidadPersonas = num.toString();
+    }
+  }
+
+  // Puedes ajustar los rangos que quieras aquí
+  validarHoraSeleccionada() {
+    const hora = this.horaSeleccionada.trim();
+    const horasValidas = [
+      '16:00',
+      '17:00',
+      '18:00',
+      '19:00',
+      '20:00',
+      '21:00',
+      '22:00',
+      '23:00',
+    ]; // Puedes expandirla
+
+    if (!horasValidas.includes(hora)) {
+      this.horaSeleccionada = horasValidas[0]; // Valor por defecto
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  cerrarDropdowns(event: Event) {
+    const target = event.target as HTMLElement;
+    if (
+      !target.closest('.personas-dropdown') &&
+      !target.closest('.personas-dropdown-content')
+    ) {
+      this.dropdownVisible.personas = false;
+    }
+    if (
+      !target.closest('.hora-dropdown') &&
+      !target.closest('.hora-dropdown-content')
+    ) {
+      this.dropdownVisible.hora = false;
+    }
+  }
+
+  enviarResumenReserva(): void {
+    const nombre = (document.getElementById('nombre') as HTMLInputElement)
+      .value;
+    const correo = (document.getElementById('email') as HTMLInputElement).value;
+    const telefono = (document.getElementById('telefono') as HTMLInputElement)
+      .value;
+    const fecha = (document.getElementById('datepicker') as HTMLInputElement)
+      .value;
+
+    if (
+      !nombre ||
+      !correo ||
+      !telefono ||
+      !this.tipoSeleccionado ||
+      !this.cantidadPersonas ||
+      !this.horaSeleccionada ||
+      !fecha
+    ) {
+      alert('Por favor, completa todos los campos.');
+      return;
+    }
+
+    const templateParams = {
+      nombre: nombre,
+      correo: correo,
+      telefono: telefono,
+      tipo: this.tipoSeleccionado,
+      fecha: fecha,
+      hora: this.horaSeleccionada,
+      personas: this.cantidadPersonas,
+    };
+
+    emailjs
+      .send(
+        'service_27ef3v8',
+        'template_tvz6kbr',
+        templateParams,
+        '5ZTm-Uw46BykPjmdj'
+      )
+      .then((response) => {
+        console.log('Correo enviado', response.status, response.text);
+        alert('¡Reserva enviada exitosamente! Revisa tu correo.');
+      })
+      .catch((error) => {
+        console.error('Error al enviar el correo', error);
+        alert('Hubo un problema al enviar la reserva.');
+      });
+  }
 }

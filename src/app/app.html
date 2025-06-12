@@ -1,5 +1,5 @@
 <!-- Encabezado de la página -->
-<header>
+<header [class.black]="isShrunk" #headerRef>
   <!--Logo de la página-->
   <img src="Delicato_Logo.png" alt="Delicato Logo" />
   <!-- Barra de navegación -->
@@ -13,69 +13,36 @@
         <a href="#" data-bs-toggle="modal" data-bs-target="#login">login</a>
       </li>
       <li *ngIf="!isAuthenticated">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#Registro"
-          >Registro</a
-        >
+        <a href="#" data-bs-toggle="modal" data-bs-target="#Registro">Registro</a>
       </li>
       <li *ngIf="isAuthenticated">
         <a href="#" (click)="logout()">Cerrar sesión</a>
       </li>
       <li>
-        <a
-          href="#"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasContacto"
-          aria-controls="offcanvasContacto"
-          >Contacto</a
-        >
+        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasContacto"
+          aria-controls="offcanvasContacto">Contacto</a>
       </li>
     </ul>
   </nav>
 </header>
 
 <!-- Modal login -->
-<div
-  class="modal fade"
-  id="login"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-dark text-white">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="login()" #loginForm="ngForm">
           <label for="email">Email:</label>
-          <input
-            [(ngModel)]="email"
-            name="email"
-            type="email"
-            id="login-email"
-            class="form-control mb-3 bg-white"
-            placeholder="Email"
-            required
-          />
+          <input [(ngModel)]="email" name="email" type="email" id="login-email" class="form-control mb-3 bg-white"
+            placeholder="Email" required />
 
           <label for="password">Password:</label>
-          <input
-            [(ngModel)]="password"
-            name="password"
-            type="password"
-            id="login-password"
-            class="form-control mb-3 bg-white"
-            placeholder="*******"
-            required
-          />
-
+          <input [(ngModel)]="password" name="password" type="password" id="login-password"
+            class="form-control mb-3 bg-white" placeholder="*******" required />
           <button type="submit" class="btn btn-primary w-100">Login</button>
         </form>
       </div>
@@ -84,48 +51,22 @@
 </div>
 
 <!-- Modal Registro -->
-<div
-  class="modal fade"
-  id="Registro"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="Registro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-dark text-white">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Registro</h1>
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="register()" #loginForm="ngForm">
           <label for="email">Email:</label>
-          <input
-            [(ngModel)]="email"
-            name="email"
-            type="email"
-            id="login-email"
-            class="form-control mb-3 bg-white"
-            placeholder="Email"
-            required
-          />
+          <input [(ngModel)]="email" name="email" type="email" id="login-email" class="form-control mb-3 bg-white"
+            placeholder="Email" required />
 
           <label for="password">Password:</label>
-          <input
-            [(ngModel)]="password"
-            name="password"
-            type="password"
-            id="login-password"
-            class="form-control mb-3 bg-white"
-            placeholder="*******"
-            required
-          />
-
+          <input [(ngModel)]="password" name="password" type="password" id="login-password"
+            class="form-control mb-3 bg-white" placeholder="*******" required />
           <button type="submit" class="btn btn-primary w-100">Login</button>
         </form>
       </div>
@@ -143,7 +84,7 @@
 </div>
 
 <!-- Sección de Nosotros -->
-<div id="Nosotros">
+<div id="Nosotros" class="SobreNosotros">
   <!-- Divisor de MICHELIN -->
   <div class="AtmosferaDivider">
     <div class="AtmosferaTexto">
@@ -153,13 +94,8 @@
         una cena romántica o para un almuerzo familiar.
       </p>
     </div>
-    <a
-      href="https://guide.michelin.com/it/it/lazio/contigliano_1843189/ristorante/delicato"
-      target="_blank"
-      ><img
-        src="MICHELIN-2025_Selected_E-label_Logo.png"
-        alt="Estrella MICHELIN"
-    /></a>
+    <a href="https://guide.michelin.com/it/it/lazio/contigliano_1843189/ristorante/delicato" target="_blank"><img
+        src="MICHELIN-2025_Selected_E-label_Logo.png" alt="Estrella MICHELIN" /></a>
   </div>
 
   <!-- Sección de gastronomía autentica -->
@@ -179,6 +115,39 @@
         </p>
       </div>
     </div>
+  </div>
+
+  <!-- Sección de la galería del interior del restaurante -->
+  <div class="galeria-interior-container">
+    <h1>Nuestro Interior</h1>
+    <div class="lineaBlanca"></div>
+    <section class="galeria-interior">
+      <div class="galeria-scroll">
+        <img src="delicato1.jpeg" alt="Imagen 1">
+        <img src="delicato10.jpg" alt="Imagen 10">
+        <img src="delicato4.jpg" alt="Imagen 4">
+        <img src="delicato3.jpeg" alt="Imagen 3">
+        <img src="delicato5.jpeg" alt="Imagen 5">
+        <img src="delicato17.jpg" alt="Imagen 17">
+        <img src="delicato7.jpg" alt="Imagen 7">
+        <img src="delicato8.jpg" alt="Imagen 8">
+        <img src="delicato9.jpg" alt="Imagen 9">
+      </div>
+    </section>
+    <section class="galeria-interior">
+      <div class="galeria-scroll">
+        <img src="delicato10.jpg" alt="Imagen 10">
+        <img src="delicato2.jpg" alt="Imagen 2">
+        <img src="delicato12.jpg" alt="Imagen 12">
+        <img src="delicato13.jpg" alt="Imagen 13">
+        <img src="delicato14.jpg" alt="Imagen 14">
+        <img src="delicato15.jpg" alt="Imagen 15">
+        <img src="delicato16.jpg" alt="Imagen 16">
+        <img src="delicato6.jpg" alt="Imagen 6">
+        <img src="delicato18.jpg" alt="Imagen 18">
+      </div>
+    </section>
+    <div class="lineaBlanca"></div>
   </div>
 </div>
 
@@ -200,42 +169,68 @@
     </div>
     <button id="nextBtn">❯</button>
   </div>
-  <div id="dots" class="dots-container"></div>
 
   <!-- Indicadores (dots) -->
-  <div class="dots" id="dots"></div>
+  <div id="dots" class="dots-container"></div>
+  <div class="linea"></div>
 </div>
 
-<div class="platillo">
-  <iframe
-    width="320"
-    height="550"
-    src="https://www.instagram.com/p/DKKbbm6o58U/embed"
-    frameborder="0"
-  ></iframe>
-  <iframe
-    width="320"
-    height="550"
-    src="https://www.instagram.com/p/DJ3i9_2hIPL/embed"
-    frameborder="0"
-  ></iframe>
-  <iframe
-    width="320"
-    height="550"
-    src="https://www.instagram.com/p/DEUfnOnMspJ/embed"
-    frameborder="0"
-  ></iframe>
-  <iframe
-    width="320"
-    height="550"
-    src="https://www.instagram.com/p/C8uNgIiIwLC/embed"
-    frameborder="0"
-  ></iframe>
+<div class="instagram-section">
+  <h1 class="Menu-titulo">¡Nuestros mejores momentos!</h1>
+  <div class="linea"></div>
+
+  <section class="instagram-gallery">
+    <div class="column vertical-loop">
+      <div class="iframe-wrapper">
+        <iframe src="https://www.instagram.com/p/DKKbbm6o58U/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DDWokl5M54y/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DJ8sr-NBWeL/embed" frameborder="0" scrolling="no"></iframe>
+        <!-- Duplicados para loop infinito -->
+        <iframe src="https://www.instagram.com/p/DKKbbm6o58U/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DDWokl5M54y/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DJ8sr-NBWeL/embed" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+
+    <div class="column vertical-loop down">
+      <div class="iframe-wrapper">
+        <iframe src="https://www.instagram.com/p/DJqwkrMMzqI/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DJCF209MO3b/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DH-hmTzP_t7/embed" frameborder="0" scrolling="no"></iframe>
+        <!-- Duplicados para loop infinito -->
+        <iframe src="https://www.instagram.com/p/DJqwkrMMzqI/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DJCF209MO3b/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DH-hmTzP_t7/embed" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+
+    <div class="column vertical-loop">
+      <div class="iframe-wrapper">
+        <iframe src="https://www.instagram.com/p/DEpSJM0sPvr/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DEFGxulMUKy/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DDHTpzBsJb6/embed" frameborder="0" scrolling="no"></iframe>
+        <!-- Duplicados para loop infinito -->
+        <iframe src="https://www.instagram.com/p/DEpSJM0sPvr/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DEFGxulMUKy/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DDHTpzBsJb6/embed" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+
+    <div class="column vertical-loop down">
+      <div class="iframe-wrapper">
+        <iframe src="https://www.instagram.com/p/DKgua9gMkdL/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/C_sPSilI_ZC/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DEPhNHSsQXW/embed" frameborder="0" scrolling="no"></iframe>
+        <!-- Duplicados para loop infinito -->
+        <iframe src="https://www.instagram.com/p/DKgua9gMkdL/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/C_sPSilI_ZC/embed" frameborder="0" scrolling="no"></iframe>
+        <iframe src="https://www.instagram.com/p/DEPhNHSsQXW/embed" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+  </section>
+  <div class="linea"></div>
 </div>
 
-<!-- -->
-
-<!-- reviews.component.html -->
 <div class="review-section">
   <div *ngIf="isAuthenticated; else loginMessage" class="review-form">
     <h3>Escribe una reseña</h3>
@@ -260,241 +255,186 @@
   </ng-template>
 
   <h3 class="review-title">Reseñas</h3>
-<div class="carousel-container " (wheel)="scrollHorizontal($event)">
-  <div class="carousel-wrapper">
-    <div class="review-card" *ngFor="let review of reviews">
-      <p><strong>{{ review.userEmail }}</strong></p>
-      <p>{{ review.content }}</p>
-      <div class="stars">
-        <span *ngFor="let star of getStarArray(review.rating)">★</span>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
-<!-- Sección de reserva -->
-<div id="Reserva" class="Reserva">
-  <div class="ReservaCardContainer">
-    <div class="ReservaCardContentContainer">
-      <!-- Inicio de la reserva -->
-      <h1>DELICATO</h1>
-      <h3>Reserva con Nosotros</h3>
-
-      <!-- Formulario para la reserva -->
-      <form>
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control form-control-sm" id="nombre" />
-
-        <label for="email">Correo</label>
-        <input type="email" class="form-control form-control-sm" id="email" />
-
-        <label for="telefono">Teléfono</label>
-        <input type="tel" class="form-control form-control-sm" id="telefono" />
-
-        <div class="GrupoBotonesTipoCena">
-          <div class="slider slider-oscuro left"></div>
-          <button id="btn-almuerzo" class="active">Almuerzo</button>
-          <button id="btn-cena">Cena</button>
-        </div>
-
-        <!-- Div para acomodar la reserva de la fecha -->
-        <div class="calendarioDropdown">
-          <div class="dropdownContainer">
-            <!-- Dropdown de Personas -->
-            <div class="personas-dropdown">
-              <div class="personas-dropdown-container">
-                <button class="personas-dropdown-button">
-                  <i class="fas fa-users"></i>
-                  <span class="arrow">&#9660;</span>
-                </button>
-                <input
-                  type="text"
-                  class="personas-dropdown-input"
-                  placeholder="Personas"
-                />
-              </div>
-              <div class="personas-dropdown-content">
-                <ul class="personas-dropdown-menu">
-                  <li data-value="1">1</li>
-                  <li data-value="2">2</li>
-                  <li data-value="3">3</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Dropdown de Horas -->
-            <div class="hora-dropdown">
-              <div class="hora-dropdown-container">
-                <button class="hora-dropdown-button">
-                  <i class="fa-regular fa-clock"></i>
-                  <span class="arrow">&#9660;</span>
-                </button>
-                <input
-                  type="text"
-                  class="hora-dropdown-input"
-                  placeholder="Hora"
-                />
-              </div>
-              <div class="hora-dropdown-content">
-                <ul class="hora-dropdown-menu">
-                  <li>16:00</li>
-                  <li>17:00</li>
-                  <li>18:00</li>
-                  <li>19:00</li>
-                  <li>20:00</li>
-                  <li>21:00</li>
-                  <li>22:00</li>
-                  <li>23:00</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Calendario Date Picker -->
-          <div class="calendar-container">
-            <div class="calendar" id="calendar"></div>
-          </div>
-        </div>
-
-        <button class="reserva-btn">Reserva</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="SeccionMesaContainer">
-    <div class="LinternaContenedor" id="lampara-container">
-      <div class="cuerda"></div>
-      <div class="cono"></div>
-      <div class="lampara"></div>
-    </div>
-
-    <div class="SeccionMesa">
-      <div class="Mesa"><img src="Mesa.png" alt="Imagen_Mesa" /></div>
-      <div class="SillaContainer Sillas-0" id="silla-container">
-        <div class="Silla SillaLeft" id="Left_Seat">
-          <img src="Silla_Lado.png" alt="Left_Seat" />
-        </div>
-        <div class="Silla SillaBack" id="Back_Seat">
-          <img src="Silla.png" alt="Back_Seat" />
-        </div>
-        <div class="Silla SillaRight" id="Right_Seat">
-          <img src="Silla_Lado.png" alt="Right_Seat" />
+  <div class="carousel-container " (wheel)="scrollHorizontal($event)">
+    <div class="carousel-wrapper">
+      <div class="review-card" *ngFor="let review of reviews">
+        <p><strong>{{ review.userEmail }}</strong></p>
+        <p>{{ review.content }}</p>
+        <div class="stars">
+          <span *ngFor="let star of getStarArray(review.rating)">★</span>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Sección del footer-->
-<footer>
-  <div class="footer-container">
-    <!-- Logo izquierda -->
-    <div class="logo">
-      <h2>DELICATO <img src="Bandera italia.png" alt="Bandera de italia" /></h2>
-      <h3>RESTAURANTE</h3>
+  <!-- Sección de reserva -->
+  <div id="Reserva" class="Reserva">
+    <div class="ReservaCardContainer">
+      <div class="ReservaCardContentContainer">
+        <!-- Inicio de la reserva -->
+        <h1>DELICATO</h1>
+        <h3>Reserva con Nosotros</h3>
+
+        <!-- Formulario para la reserva -->
+        <form>
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control form-control-sm" id="nombre" />
+
+          <label for="email">Correo</label>
+          <input type="email" class="form-control form-control-sm" id="email" />
+
+          <label for="telefono">Teléfono</label>
+          <input type="tel" class="form-control form-control-sm" id="telefono" />
+
+          <div class="GrupoBotonesTipoCena">
+            <div class="slider slider-oscuro left" id="sliderToggle"></div>
+            <button id="btn-almuerzo" class="active" (click)="seleccionarTipo('almuerzo')">Almuerzo</button>
+            <button id="btn-cena" (click)="seleccionarTipo('cena')">Cena</button>
+          </div>
+
+          <!-- Div para acomodar la reserva de la fecha -->
+          <div class="calendarioDropdown">
+            <div class="dropdownContainer">
+              <!-- Dropdown de Personas -->
+              <div class="personas-dropdown">
+                <div class="personas-dropdown-container">
+                  <button class="personas-dropdown-button" (click)="toggleDropdown('personas')">
+                    <i class="fas fa-users"></i>
+                    <span class="arrow">&#9660;</span>
+                  </button>
+                  <input type="text" class="personas-dropdown-input" placeholder="Personas"
+                    [(ngModel)]="cantidadPersonas" name="personas" (blur)="validarCantidadPersonas()">
+                </div>
+                <div class="personas-dropdown-content">
+                  <div class="dropdown-option" (click)="seleccionarPersona(1)">1 persona</div>
+                  <div class="dropdown-option" (click)="seleccionarPersona(2)">2 personas</div>
+                  <div class="dropdown-option" (click)="seleccionarPersona(3)">3 personas</div>
+                </div>
+              </div>
+
+              <!-- Dropdown de Horas -->
+              <div class="hora-dropdown">
+                <div class="hora-dropdown-container">
+                  <button class="hora-dropdown-button" (click)="toggleDropdown('hora')">
+                    <i class="fa-regular fa-clock"></i>
+                    <span class="arrow">&#9660;</span>
+                  </button>
+                  <input type="text" class="hora-dropdown-input" placeholder="Hora" [(ngModel)]="horaSeleccionada"
+                    name="hora" (blur)="validarHoraSeleccionada()">
+                </div>
+                <div class="hora-dropdown-content">
+                  <div class="dropdown-option" (click)="seleccionarHora('16:00')">16:00 PM</div>
+                  <div class="dropdown-option" (click)="seleccionarHora('17:00')">17:00 PM</div>
+                  <div class="dropdown-option" (click)="seleccionarHora('18:00')">18:00 PM</div>
+                  <div class="dropdown-option" (click)="seleccionarHora('19:00')">19:00 PM</div>
+                  <div class="dropdown-option" (click)="seleccionarHora('20:00')">20:00 PM</div>
+                  <div class="dropdown-option" (click)="seleccionarHora('21:00')">21:00 PM</div>
+                  <div class="dropdown-option" (click)="seleccionarHora('22:00')">22:00 PM</div>
+                  <div class="dropdown-option" (click)="seleccionarHora('23:00')">23:00 PM</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calendario Date Picker -->
+            <div class="calendar-container">
+              <input type="text" id="datepicker" class="form-control" placeholder="Selecciona una fecha">
+            </div>
+          </div>
+
+          <button type="button" class="reserva-btn" (click)="enviarResumenReserva()">Reserva</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección del footer-->
+  <footer>
+    <div class="footer-container">
+      <!-- Logo izquierda -->
+      <div class="logo">
+        <h2>DELICATO <img src="Bandera italia.png" alt="Bandera de italia" /></h2>
+        <h3>RESTAURANTE</h3>
+      </div>
+
+      <!-- Informacion de contacto -->
+      <div class="info-container">
+        <div class="contact-info">
+          <h4>Dirección</h4>
+          <p>Via Umberto I, 2 02043 – Contigliano (Rieti)</p>
+        </div>
+        <div class="contact-info">
+          <h4>EMAIL</h4>
+          <p>restaurant&#64;miramar-cambrils.com</p>
+          <h4>TELÉFONO</h4>
+          <p>+34 977 36 00 63</p>
+        </div>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="social-container">
+        <a href="https://www.instagram.com/ristorantedelicato/" target="_blank"><i
+            class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/ristorantedelicato" target="_blank"><i
+            class="fa-brands fa-facebook-f"></i></a>
+      </div>
     </div>
 
-    <!-- Informacion de contacto -->
-    <div class="info-container">
-      <div class="contact-info">
+    <div class="footer-bottom">
+      <p class="footer-text"><em>Rispetto per il territorio</em></p>
+      <p class="rights">Todos los derechos reservados | Delicato&#64;</p>
+    </div>
+  </footer>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasContacto" aria-labelledby="offcanvasContactoLabel">
+    <div class="offcanvas-header">
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+
+    <div class="offcanvas-body">
+      <h1>Horarios</h1>
+
+      <div class="horarios">
+        <h4>Miercoles-Viernes</h4>
+        <p>3 p.m. - 12 a.m</p>
+
+        <h4>Sabado</h4>
+        <p>10:30 a.m - 12 a.m.</p>
+
+        <h4>Domingo</h4>
+        <p>10:30 a.m - 3 p.m.</p>
+      </div>
+
+      <div class="contact-container">
+        <h2>Contacto</h2>
+        <div class="Telefono">
+          <h4>Teléfono</h4>
+          <p>+39 0746249202</p>
+          <a href="tel:+390746249202" class="call-button" title="Llamar">
+            <div class="icon-container">📞 Llamar</div>
+          </a>
+        </div>
+
+        <div class="correo">
+          <h4>Correo</h4>
+          <p>info&#64;ristorantedelicato.it</p>
+          <a href="mailto:info&#64;ristorantedelicato.it?subject=Consulta&body=Hola, me gustaría más información."
+            class="email-button" title="Enviar correo">
+            <div class="icon-container">📧 Enviar</div>
+          </a>
+        </div>
+      </div>
+
+      <div>
         <h4>Dirección</h4>
-        <p>Via Umberto I, 2 02043 – Contigliano (Rieti)</p>
-      </div>
-      <div class="contact-info">
-        <h4>EMAIL</h4>
-        <p>restaurant&#64;miramar-cambrils.com</p>
-        <h4>TELÉFONO</h4>
-        <p>+34 977 36 00 63</p>
-      </div>
-    </div>
-
-    <!-- Redes sociales -->
-    <div class="social-container">
-      <a href="https://www.instagram.com/ristorantedelicato/" target="_blank"
-        ><i class="fa-brands fa-instagram"></i
-      ></a>
-      <a href="https://www.facebook.com/ristorantedelicato" target="_blank"
-        ><i class="fa-brands fa-facebook-f"></i
-      ></a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p class="footer-text"><em>Rispetto per il territorio</em></p>
-    <p class="rights">Todos los derechos reservados | Delicato&#64;</p>
-  </div>
-</footer>
-
-<div
-  class="offcanvas offcanvas-end"
-  tabindex="-1"
-  id="offcanvasContacto"
-  aria-labelledby="offcanvasContactoLabel"
->
-  <div class="offcanvas-header">
-    <button
-      type="button"
-      class="btn-close text-reset"
-      data-bs-dismiss="offcanvas"
-      aria-label="Cerrar"
-    ></button>
-  </div>
-
-  <div class="offcanvas-body">
-    <h1>Horarios</h1>
-
-    <div class="horarios">
-      <h4>Miercoles-Viernes</h4>
-      <p>3 p.m. - 12 a.m</p>
-
-      <h4>Sabado</h4>
-      <p>10:30 a.m - 12 a.m.</p>
-
-      <h4>Domingo</h4>
-      <p>10:30 a.m - 3 p.m.</p>
-    </div>
-
-    <div class="contact-container">
-      <h2>Contacto</h2>
-      <div class="Telefono">
-        <h4>Teléfono</h4>
-        <p>+39 0746249202</p>
-        <a href="tel:+390746249202" class="call-button" title="Llamar">
-          <div class="icon-container">📞 Llamar</div>
-        </a>
-      </div>
-
-      <div class="correo">
-        <h4>Correo</h4>
-        <p>info&#64;ristorantedelicato.it</p>
-        <a
-          href="mailto:info&#64;ristorantedelicato.it?subject=Consulta&body=Hola, me gustaría más información."
-          class="email-button"
-          title="Enviar correo"
-        >
-          <div class="icon-container">📧 Enviar</div>
-        </a>
+        <p>Via Umberto I, 2, 02043 Contigliano RI</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1900.6259912746705!2d12.76524883049025!3d42.40911966870392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f0169f47aa0e5%3A0x8d39707f4b52b82c!2sDELICATO%20%7C%20Ristorante!5e1!3m2!1sit!2sit!4v1742417629730!5m2!1sit!2sit"
+          width="300" height="150" style="border: 0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
-
-    <div>
-      <h4>Dirección</h4>
-      <p>Via Umberto I, 2, 02043 Contigliano RI</p>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1900.6259912746705!2d12.76524883049025!3d42.40911966870392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f0169f47aa0e5%3A0x8d39707f4b52b82c!2sDELICATO%20%7C%20Ristorante!5e1!3m2!1sit!2sit!4v1742417629730!5m2!1sit!2sit"
-        width="300"
-        height="150"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      >
-      </iframe>
-    </div>
   </div>
-</div>
-<script src="js/imagenExpandida.js"></script>
+  <script src="js/imagenExpandida.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
